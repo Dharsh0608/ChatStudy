@@ -55,6 +55,22 @@ User authentication mechanisms are essential to ensure secure and authorized acc
 •	User Management: Maintaining information about connected users, their status, and handling login/logout functionality.
 •	Message Routing: Implementing logic to route messages from one client to another, ensuring proper delivery.
 
+~~~
+import socket
+
+s = socket.socket()
+s.bind(('localhost', 6000))  
+s.listen(1)
+print("Server is listening...")
+
+conn, addr = s.accept()
+print("Connected by", addr)
+data = conn.recv(1024).decode()
+print("Client says:", data)
+conn.send(b"Hello from server!")
+conn.close()
+~~~
+
 ## Considerations in Development:
 1.	Concurrency and Multithreading:
 •	Chat applications often require handling multiple connections simultaneously. The server must be designed to support concurrency, commonly achieved through multithreading or asynchronous programming.
@@ -72,6 +88,10 @@ User authentication mechanisms are essential to ensure secure and authorized acc
 Client-server chat applications are versatile tools that facilitate real-time communication between users over a network. They incorporate various components, including server-side and client-side elements, and must consider factors such as security, scalability, and concurrency. As technology continues to advance, client-server chat applications remain integral for collaborative communication in various domains.
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
+
+## Output:
+
+![WhatsApp Image 2025-09-16 at 08 47 27_bbf13767](https://github.com/user-attachments/assets/af8b7a1c-fbe0-4bbe-9cfb-616e8a363329)
 
 
 ## Result:
